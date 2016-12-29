@@ -1,10 +1,12 @@
 # OtpSharp.Core
-OtpSharp for .NET Core/NetStandard original code at https://bitbucket.org/devinmartin/otp-sharp/
+####OtpSharp for .NET Core/NetStandard original code at https://bitbucket.org/devinmartin/otp-sharp/
  
-Since protected memory is not available cross platorm it has been removed.
-This library is completely untested so please report any issues.
+####Since protected memory is not available cross platorm it has been removed.
+####This library is completely untested so please report any issues.
+
+#### NuGet https://www.nuget.org/packages/OtpSharp.Core
  
-_
+
 An implementation of HOTP (RFC 4226) and TOTP (RFC 6238) in C#.
 http://tools.ietf.org/html/rfc6238
 http://www.ietf.org/rfc/rfc4226.txt
