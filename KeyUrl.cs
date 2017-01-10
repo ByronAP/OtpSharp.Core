@@ -110,7 +110,8 @@
         /// <returns>An otp object</returns>
         public static Otp FromUrl(string rawUrl)
         {
-            return FromUrl(rawUrl, out string user);
+            string user;
+            return FromUrl(rawUrl, out user);
         }
 
         /// <summary>
@@ -134,7 +135,8 @@
                 throw new ArgumentException(string.Format("invalid scheme {0}. Must be otpauth://", url.Scheme));
 
             var otpTypeString = url.Authority;
-            if (!Enum.TryParse<OtpType>(otpTypeString, true, out var type))
+            OtpType type;
+            if (!Enum.TryParse<OtpType>(otpTypeString, true, out type))
                 type = OtpType.Unknown;
 
             switch (type)
@@ -150,7 +152,8 @@
 
         private static Hotp HotpFromUrl(Uri url)
         {
-            var collection = ParseAndValidateQueryString(url, out int digits);
+            int digits;
+            var collection = ParseAndValidateQueryString(url, out digits);
             if (!ValidateQueryStringFields(collection,
                 UrlConstants.AlgorithmParameter,
                 UrlConstants.CounterParameter,
@@ -162,7 +165,8 @@
 
         private static Totp TotpFromUrl(Uri url)
         {
-            var collection = ParseAndValidateQueryString(url, out int digits);
+            int digits;
+            var collection = ParseAndValidateQueryString(url, out digits);
 
             if (!ValidateQueryStringFields(collection,
                 UrlConstants.AlgorithmParameter,
@@ -182,7 +186,8 @@
             int period = 30; // the spec indicates that 30 is the default 
             if (collection.AllKeys.Contains(UrlConstants.PeriodParameter))
             {
-                if (int.TryParse(collection[UrlConstants.PeriodParameter], out int tempPeriod))
+                int tempPeriod;
+                if (int.TryParse(collection[UrlConstants.PeriodParameter], out tempPeriod))
                 {
                     if (tempPeriod < 1)
                         throw new ArgumentException(string.Format("Invalid Period {0}, must be at least 1", tempPeriod));

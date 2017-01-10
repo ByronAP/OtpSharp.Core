@@ -82,7 +82,8 @@ namespace OtpSharp
                         }
                     }
 
-                    if (TryParseResponse(response, out var networkTime))
+                    DateTime networkTime;
+                    if (TryParseResponse(response, out networkTime))
                     {
                         return new TimeCorrection(networkTime);
                     }
