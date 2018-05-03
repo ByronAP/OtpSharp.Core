@@ -1,3 +1,6 @@
+#DEPRECIATED Please use: https://github.com/Coinigy/PureOtp
+___________________________________________________________________________________________________
+
 # OtpSharp.Core
 ####OtpSharp for .NET Core/NetStandard original code at https://bitbucket.org/devinmartin/otp-sharp/
  
